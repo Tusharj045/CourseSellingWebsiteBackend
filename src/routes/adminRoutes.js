@@ -8,6 +8,7 @@ const router = express.Router();
 router.post('/signup', adminController.signup);
 router.post('/login', adminController.login);
 router.get('/me', auth, adminController.getUserDetails);
+router.get('/course/:courseId', auth, adminController.getCourseById);
 router.post('/courses', auth, adminController.addCourse);
 router.put('/courses/:courseId', auth, adminController.updateCourse);
 router.get('/courses', auth, adminController.getAllCourses);

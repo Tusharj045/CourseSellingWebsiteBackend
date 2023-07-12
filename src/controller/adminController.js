@@ -84,6 +84,20 @@ const adminController = {
             console.log(err)
             res.status(400).json(err);
         }
+    },
+
+    getCourseById: async (req, res) => {
+        try {
+            const courseId = req.params.courseId;
+            const courseExists = await Course.findById(courseId);
+            if (!courseExists) {
+                return res.status(400).json({message: "Course doesn\'t exist"});
+            }
+            return res.status(201).json({Course: courseExists});
+        } catch (err) {
+            console.log(err)
+            res.status(400).json(err);
+        }
     }
 };
 
