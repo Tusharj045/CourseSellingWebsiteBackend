@@ -18,7 +18,7 @@ const courseSchema = mongoose.Schema({
         required: true,
     },
     published: {
-        type: String,
+        type: Boolean,
         required: true,
     }
 });
