@@ -4,6 +4,10 @@ const Admin = require('../models/admin');
 const Course = require('../models/course');
 
 const adminController = {
+    test: async (req, res) => {
+        return res.status(200).json({ message: 'Server is running' });
+    },
+    
     signup: async (req, res) => {
         const { name, username, password } = req.body;
         try {
