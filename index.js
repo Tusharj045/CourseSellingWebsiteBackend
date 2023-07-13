@@ -1,5 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const cors = require('cors');
+const bodyParser = require('body-parser');
 
 const adminRoutes = require('./src/routes/adminRoutes');
 const userRoutes = require('./src/routes/userRoutes');
@@ -8,6 +10,8 @@ const connectDB = require('./src/config/database');
 const app = express();
 
 app.use(express.json());
+app.use(cors());
+app.use(bodyParser.json())
 
 app.use('/admin', adminRoutes);
 app.use('/users', userRoutes);
