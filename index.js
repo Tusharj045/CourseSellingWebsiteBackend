@@ -12,6 +12,11 @@ app.use(express.json());
 app.use('/admin', adminRoutes);
 app.use('/users', userRoutes);
 
+// for all other routes, return 404
+app.use((req, res, next) => {
+	res.status(404).send();
+});
+
 //Connect to mongodb atlas
 connectDB();
 mongoose.connection.on('error', (error) => {
