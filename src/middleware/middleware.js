@@ -9,7 +9,7 @@ module.exports = {
             req.username = decoded.username;
         } catch(err) {
             console.log(err);
-            return res.send({message: 'Invalid token', err})
+            return res.status(400).send({message: 'Invalid token', err})
         }
         next()
     }
